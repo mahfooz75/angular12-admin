@@ -1,1 +1,8 @@
-<p>list-users works!</p>
+
+<div class="main-content">
+    <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let user of listUsers">
+            {{user.name}}
+        </mat-list-item>
+    </mat-list>
+</div>
