@@ -16,4 +16,13 @@ export class UserService {
   viewUser(id: string) {
     return this.http.get(this.baseURL + 'users/' + id);
   }
+
+  addUser(userObj: any) {
+    return this.http.post(this.baseURL + 'users', userObj);
+  }
+
+  deleteUser(id: string) {
+    return this.http.delete(this.baseURL + 'users/' + id);
+  }
+
 }
