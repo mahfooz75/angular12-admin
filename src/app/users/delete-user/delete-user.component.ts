@@ -15,7 +15,7 @@ export class DeleteUserComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data => {
       this.userId = data.id
-    })
+    });
 
     if (this.userId) {
       this.userService.deleteUser(this.userId).subscribe(data => {
