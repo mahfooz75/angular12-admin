@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-title>Create New User</mat-card-title>
-    <mat-card-content>
+    <mat-card-content style="padding-top: 20px;">
         <form [formGroup]="addUserForm" (submit)="createUser()">
             <p>
                 <mat-form-field appearance="outline">
@@ -26,7 +26,7 @@
                 </mat-form-field>
             </p>
             <p>
-                <button mat-raised-button color="primary">Create User</button>
+                <button mat-raised-button color="primary" [disabled]="!addUserForm.valid">Create User</button>
             </p>
         </form>
     </mat-card-content>
