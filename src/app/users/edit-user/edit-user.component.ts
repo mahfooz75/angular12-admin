@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -28,9 +28,9 @@ export class EditUserComponent implements OnInit {
       this.userDetails=data;
 
       this.editUserForm=this.formBuilder.group({
-        'username':new FormControl(this.userDetails.name),
-        'email':new FormControl(this.userDetails.email),
-        'phone':new FormControl(this.userDetails.phone)
+        'username':new FormControl(this.userDetails.name,[Validators.required,Validators.minLength(3)]),
+        'email':new FormControl(this.userDetails.email,[Validators.required,Validators.email]),
+        'phone':new FormControl(this.userDetails.phone,[Validators.required,Validators.maxLength(10)])
       })
       this.dataLoaded=true;
       })
