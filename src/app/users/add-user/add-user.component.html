@@ -6,7 +6,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>User Name</mat-label>
                     <input matInput placeholder="User Name" formControlName="username">
-                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-icon matSuffix>people</mat-icon>
                 </mat-form-field>
             </p>
 
@@ -14,7 +14,13 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
                     <input matInput placeholder="Email" formControlName="email">
-                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-icon matSuffix>email</mat-icon>
+                    <mat-error *ngIf="addUserForm.controls['email'].errors && addUserForm.controls['email'].hasError('required')">
+                        Email is required
+                    </mat-error>
+                    <mat-error *ngIf="addUserForm.controls['email'].errors && addUserForm.controls['email'].hasError('email')">
+                        Email is not valid
+                    </mat-error>
                 </mat-form-field>
             </p>
 
@@ -22,7 +28,13 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Phone</mat-label>
                     <input matInput placeholder="Phone" formControlName="phone">
-                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-error *ngIf="addUserForm.controls['phone'].errors && addUserForm.controls['phone'].hasError('required')">
+                        Phone number is required
+                    </mat-error>
+                    <mat-error *ngIf="addUserForm.controls['phone'].errors && addUserForm.controls['phone'].hasError('maxlength')">
+                        Phone number should be 10 digits
+                    </mat-error>
                 </mat-form-field>
             </p>
             <p>
